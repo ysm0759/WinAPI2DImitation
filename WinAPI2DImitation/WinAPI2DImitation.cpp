@@ -18,7 +18,7 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
-#define WINSTYLE	WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+
 
 // _In_ : SAL 주석 - 자주 사용되는 주석을 매번 적기보다 키워드로 작성함.
 // hInstance : 실행된 프로세스의 시작 주소. 인스턴스 핸들
@@ -39,7 +39,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+    
 
+    // 리소스 뷰의 String table 용도
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_WINAPI2DIMITATION, szWindowClass, MAX_LOADSTRING);
@@ -63,12 +65,25 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // GetMessage : 메시지 큐에 메시지가 없으면 대기, 메시지가 들어왔다면 true 반환, WM_QUIT 메시지가 있으면 false 반환
     // PeekMessage : 메시지 큐에 메시지가 없다면 false 반환, 메시지가 있다면 true 반환
 
-    while (GetMessage(&msg, nullptr, 0, 0))
+    // 게임 루프
+    // 이전 GetMessage의 대기 상태 유지에서
+    // 현재 PeekMessage의 메시지가 없는 99.99% 상황에서 게임 상황을 처리
+
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))  // 단축키에 대한 처리
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);     // 키보드 입력메세지 처리를 담당
-            DispatchMessage(&msg);      // WndProc에서 전달된 메세지를 실제 윈도우에 전달
+            if (WM_QUIT == msg.message) // 이문장이 없으면 X 를 눌러도 while 문을 계속 반복하여 프로그램이 종료 되지않음
+                break;
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))  // 단축키에 대한 처리
+            {
+                TranslateMessage(&msg);     // 키보드 입력메세지 처리를 담당
+                DispatchMessage(&msg);      // WndProc에서 전달된 메세지를 실제 윈도우에 전달
+            }
+        }
+        else // 게임에 대한 처리
+        {
+
         }
     }
 
@@ -77,18 +92,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 
 
-//
 //  함수: MyRegisterClass()
-//
 //  용도: 창 클래스를 등록합니다.
-//
+
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
+    // 윈도우 창의 정보를 저장하기 위한 구조체
     WNDCLASSEXW wcex;
 
-    wcex.cbSize = sizeof(WNDCLASSEX);
+    wcex.cbSize = sizeof(WNDCLASSEX); //구조체의 크기 설정
 
-    wcex.style          = CS_HREDRAW | CS_VREDRAW;                              // 윈도우 클래스의 스타일 지정
+    wcex.style = CS_HREDRAW | CS_VREDRAW;                              // 윈도우 클래스의 스타일 지정
     wcex.lpfnWndProc = WndProc;                                                 // 메세지를 처리하는 함수를 지정(윈도우 프로시져)
     wcex.cbClsExtra = 0;                                                        // 윈도우 클래스에서 사용하고자 하는 여분의 메모리양을 바이트 단위로 지정
     wcex.cbWndExtra = 0;                                                        // cbClsExtra와 유사하나 개별 윈도우에서 사용하고자 하는 여분의 메모리양을 지정
@@ -103,16 +117,14 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     return RegisterClassExW(&wcex);
 }
 
-//
 //   함수: InitInstance(HINSTANCE, int)
-//
+
 //   용도: 인스턴스 핸들을 저장하고 주 창을 만듭니다.
-//
+
 //   주석:
-//
 //        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
 //        주 프로그램 창을 만든 다음 표시합니다.
-//
+
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
@@ -138,18 +150,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    RECT rc;
    rc.left = 0;
    rc.top = 0;
-   rc.right = 1280;
-   rc.bottom = 720;
+   rc.right = WINSIZEX;
+   rc.bottom = WINSIZEY;
 
    // 실제 창이 크기에 맞게 나온다.
    AdjustWindowRect(&rc, WINSTYLE, false);
    //위 RECT정보로 윈도우 사이즈를 셋팅하자.
-   SetWindowPos(hWnd, NULL, 100, 100, (rc.right - rc.left), (rc.bottom - rc.top), SWP_NOZORDER | SWP_NOMOVE);
-
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
-
-
+   SetWindowPos(hWnd, NULL, WINSTARTX, WINSTARTY, (rc.right - rc.left), (rc.bottom - rc.top), SWP_NOZORDER | SWP_NOMOVE);
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
