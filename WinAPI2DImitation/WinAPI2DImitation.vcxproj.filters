@@ -16,6 +16,9 @@
     <Filter Include="GameObject">
       <UniqueIdentifier>{33e5a8b3-8c93-4e75-b8a1-4f2c66009b4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{42a986f9-0300-4eca-970a-b93eaa025b2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -35,6 +38,9 @@
     </ClInclude>
     <ClInclude Include="fPoint.h">
       <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
