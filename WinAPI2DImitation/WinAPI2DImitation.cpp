@@ -102,18 +102,19 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 
     wcex.cbSize = sizeof(WNDCLASSEX); //구조체의 크기 설정
 
-    wcex.style = CS_HREDRAW | CS_VREDRAW;                              // 윈도우 클래스의 스타일 지정
+    wcex.style = CS_HREDRAW | CS_VREDRAW;                                       // 윈도우 클래스의 스타일 지정
     wcex.lpfnWndProc = WndProc;                                                 // 메세지를 처리하는 함수를 지정(윈도우 프로시져)
     wcex.cbClsExtra = 0;                                                        // 윈도우 클래스에서 사용하고자 하는 여분의 메모리양을 바이트 단위로 지정
     wcex.cbWndExtra = 0;                                                        // cbClsExtra와 유사하나 개별 윈도우에서 사용하고자 하는 여분의 메모리양을 지정
     wcex.hInstance = hInstance;                                                 // 윈도우 클래스를 등록한 인스턴스의 핸들
     wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPI2DIMITATION));   // 프로그램 아이콘
-    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);                              // 타이틀바 좌상단과 윈도우가 최소화 되었을 때 보여주는 아이콘을 지정
-    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);                             // 커서 지정
-    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINAPI2DIMITATION);                // 윈도우 작업영역에 칠한 배경 브러시
-    wcex.lpszClassName = szWindowClass;                                         // 윈도우에서 사용할 메뉴 지정, nullptr로 없앰
-    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));        // 윈도우 클래스의 이름
+    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));        // 타이틀바 좌상단과 윈도우가 최소화 되었을 때 보여주는 아이콘을 지정
+    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);                              // 커서 지정
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW);                                // 윈도우 작업영역에 칠한 배경 브러시
+    wcex.lpszMenuName = nullptr;                                                // 윈도우에서 사용할 메뉴 지정, nullptr로 없앰
+    wcex.lpszClassName = szWindowClass;                                         // 윈도우 클래스의 이름
 
+  
     return RegisterClassExW(&wcex);
 }
 

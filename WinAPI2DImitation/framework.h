@@ -17,7 +17,8 @@
 #include <tchar.h>
 
 
-
+#include "fPoint.h"
+#include "GameObject.h"
 // 전역 변수용
 
 
