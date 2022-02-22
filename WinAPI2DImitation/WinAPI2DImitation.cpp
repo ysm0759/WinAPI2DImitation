@@ -8,6 +8,7 @@
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HWND hWnd;
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
@@ -69,6 +70,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 이전 GetMessage의 대기 상태 유지에서
     // 현재 PeekMessage의 메시지가 없는 99.99% 상황에서 게임 상황을 처리
 
+    Core::getInst()->init();
     while (true)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -83,7 +85,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else // 게임에 대한 처리
         {
-
+            Core::getInst()->update();
+            Core::getInst()->render();
         }
     }
 
@@ -129,18 +132,18 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
-
-   HWND hWnd = CreateWindowW(szWindowClass,          // 클래스 이름
-                             szTitle,                // 윈도우 타이틀 이름
-                             WS_OVERLAPPEDWINDOW,    // 윈도우 스타일, 내부 뜯어서 보여주기
-                             CW_USEDEFAULT,          // 윈도우 화면 X
-                             0,                      // 윈도우 화면 Y
-                             CW_USEDEFAULT,          // 가로 크기
-                             0,                      // 세로 크기
-                             nullptr,                // 부모 윈도우
-                             nullptr,                // 메뉴 핸들
-                             hInstance,              // 인스턴스 지정
-                             nullptr);               // 추가 매개변수
+   // hwnd값이 null이면  그릴때 그냥 바탕화면에 그려버림
+   hWnd = CreateWindowW(szWindowClass,         // 클래스 이름
+                        szTitle,           // 윈도우 타이틀 이름
+                        WINSTYLE,          // 윈도우 스타일, 내부 뜯어서 보여주기
+                        WINSTARTX,         // 윈도우 화면 X
+                        WINSTARTY,         // 윈도우 화면 Y
+                        WINSIZEX,          // 가로 크기
+                        WINSIZEY,          // 세로 크기
+                        nullptr,           // 부모 윈도우
+                        nullptr,           // 메뉴 핸들
+                        hInstance,         // 인스턴스 지정
+                        nullptr);          // 추가 매개변수
 
    if (!hWnd)
    {

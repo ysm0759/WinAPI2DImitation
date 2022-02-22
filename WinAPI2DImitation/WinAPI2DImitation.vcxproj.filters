@@ -19,6 +19,9 @@
     <Filter Include="Util">
       <UniqueIdentifier>{42a986f9-0300-4eca-970a-b93eaa025b2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{45e163d6-f7e5-4320-bb2f-9b4ba1bff052}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -42,6 +45,9 @@
     <ClInclude Include="Singleton.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -49,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

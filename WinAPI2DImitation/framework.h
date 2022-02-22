@@ -15,9 +15,12 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <string>
 
 
+#include "Singleton.h"
 #include "fPoint.h"
+#include "Core.h"
 #include "GameObject.h"
 // 전역 변수용
 
@@ -34,5 +37,9 @@
 
 
 
+//전역변수(인스턴스, 윈도우 핸들)
 
+
+extern HINSTANCE hInst;
+extern HWND hWnd;
 
