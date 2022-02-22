@@ -1,2 +1,2 @@
-# WinAPI2DImitation
-성민
+# WinAPI2DImitation 성민
+
