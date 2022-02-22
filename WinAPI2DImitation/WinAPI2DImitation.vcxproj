@@ -154,11 +154,13 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TimeManager.h" />
     <ClInclude Include="WinAPI2DImitation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="WinAPI2DImitation.cpp" />
   </ItemGroup>
   <ItemGroup>

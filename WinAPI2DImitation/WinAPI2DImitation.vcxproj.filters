@@ -22,6 +22,12 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{45e163d6-f7e5-4320-bb2f-9b4ba1bff052}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{85f594c5-ba4f-48e4-a6b9-30fed79229d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager">
+      <UniqueIdentifier>{2ca8b6f4-9558-4d9f-9270-128aa3a54585}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -45,8 +51,11 @@
     <ClInclude Include="Singleton.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
     <ClInclude Include="Core.h">
-      <Filter>Engine</Filter>
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +65,11 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
     <ClCompile Include="Core.cpp">
-      <Filter>Engine</Filter>
+      <Filter>Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

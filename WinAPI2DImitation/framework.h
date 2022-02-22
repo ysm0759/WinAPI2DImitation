@@ -22,6 +22,7 @@
 #include "fPoint.h"
 #include "Core.h"
 #include "GameObject.h"
+#include "TimeManager.h"
 // 전역 변수용
 
 
