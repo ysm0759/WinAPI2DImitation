@@ -2,7 +2,7 @@
 #include "Core.h"
 #include "GameObject.h"
 
-GameObject object;
+Player player(fPoint(100.f, 100.f), fPoint(100.f, 100.f));
 
 Core::Core()
 {
@@ -22,47 +22,50 @@ void Core::update()
 {
 	TimeManager::getInst()->update();
 	KeyManager::getInst()->update();
+	
 
-	fPoint pos = object.GetPos();
-	if (KeyManager::getInst()->keyPressed(VK_LEFT))
-	{
-		pos.x -= 100 * TimeManager::getInst()->getDT();
-	}
+	player.update();
+	//monster.update();
+	//monster.update();
+	//monster.update();
+	//monster.update();
+	//monster.update();
+	//missile.update();
+	//missile.update();
+	//missile.update();
+	//missile.update();
+	//missile.update();
 
-	if (KeyManager::getInst()->keyPressed(VK_RIGHT))
-	{
-		pos.x += 100 * TimeManager::getInst()->getDT();
-	}
-
-	if (KeyManager::getInst()->keyPressed(VK_UP))
-	{
-		pos.y -= 100 * TimeManager::getInst()->getDT();
-	}
-
-	if (KeyManager::getInst()->keyPressed(VK_DOWN))
-	{
-		pos.y += 100 * TimeManager::getInst()->getDT();
-	}
-
-	object.SetPos(pos);
+	//위와 같은 방식으로하면 코어에 부담이 크다 
+	//그걸 해결하기 위해서 scene을 두고 scene manager로 관리해야한다.
+	
 }
 
 void Core::render()
 {
+	//배경 그려주기
 	Rectangle(m_hMemDC, -1, -1, WINSIZEX + 1, WINSIZEY + 1);
-	hWnd;
-	Rectangle(m_hMemDC,
-		object.GetPos().x - object.GetScale().x / 2,
-		object.GetPos().y - object.GetScale().y / 2,
-		object.GetPos().x + object.GetScale().x / 2,
-		object.GetPos().y + object.GetScale().y / 2);
 
+
+
+	player.render(m_hMemDC);
+	//monster.render();
+	//monster.render();
+	//monster.render();
+	//monster.render();
+	//monster.render();
+	//missile.render();
+	//missile.render();
+	//missile.render();
+	//missile.render();
+	//missile.render();
+	//위와 같은 방식으로하면 코어에 부담이 크다 
+	//그걸 해결하기 위해서 scene을 두고 scene manager로 관리해야한다.
+	
 	// 오른쪽 상단에 FPS 표시
 	WCHAR strFPS[6];
 	swprintf_s(strFPS, L"%5d", TimeManager::getInst()->getFPS());
 	TextOutW(m_hMemDC, WINSIZEX - 50, 10, strFPS, 5);
-
-
 	BitBlt(m_hDC, 0, 0, WINSIZEX, WINSIZEY, m_hMemDC, 0, 0, SRCCOPY);
 
 }
@@ -71,7 +74,6 @@ void Core::init()
 {
 	TimeManager::getInst()->init();
 	KeyManager::getInst()->init();
-
 	m_hDC = GetDC(hWnd);
 
 
@@ -89,5 +91,4 @@ void Core::init()
 	DeleteObject(hOldBitmap);
 
 
-	object = GameObject(fPoint(100, 100), fPoint{ 100, 100 });
 }

@@ -9,9 +9,9 @@ struct fPoint
 		y = -0.f;
 	}
 
-	fPoint(float x, float y)
+	fPoint(float _x, float _y)
 	{
-		this->x = x;
-		this->y = y;
+		this->x = _x;
+		this->y = _y;
 	}
 };

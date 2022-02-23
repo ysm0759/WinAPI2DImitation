@@ -24,6 +24,7 @@
 #include "GameObject.h"
 #include "TimeManager.h"
 #include "KeyManager.h"
+#include "Player.h"
 // 전역 변수용
 
 

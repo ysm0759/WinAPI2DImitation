@@ -46,7 +46,7 @@ void KeyManager::update()
 		if (GetAsyncKeyState(key) & 0x8000)
 			m_arrCurKey[key] = true;		
 		else
-			m_arrPrevKey[key] = false;
+			m_arrCurKey[key] = false;
 	}
 
 }

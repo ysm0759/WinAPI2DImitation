@@ -7,13 +7,18 @@ private:
 	fPoint m_fptScale;
 
 public:
+	
 	GameObject();
 	GameObject(fPoint pos, fPoint scale);
-	~GameObject();
+	virtual ~GameObject();
 
-	void SetPos(fPoint pos);
-	void SetScale(fPoint scale);
+	void setPos(fPoint pos);
+	void setScale(fPoint scale);
 
-	fPoint GetPos();
-	fPoint GetScale();
+	fPoint getPos();
+	fPoint getScale();
+
+	virtual void update();
+	virtual void render(HDC hDC);
+
 };
