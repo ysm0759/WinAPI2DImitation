@@ -57,6 +57,9 @@
     <ClInclude Include="Core.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -70,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>Engine\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

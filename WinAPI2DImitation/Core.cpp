@@ -21,24 +21,25 @@ Core::~Core()
 void Core::update()
 {
 	TimeManager::getInst()->update();
+	KeyManager::getInst()->update();
 
 	fPoint pos = object.GetPos();
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	if (KeyManager::getInst()->keyPressed(VK_LEFT))
 	{
 		pos.x -= 100 * TimeManager::getInst()->getDT();
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	if (KeyManager::getInst()->keyPressed(VK_RIGHT))
 	{
 		pos.x += 100 * TimeManager::getInst()->getDT();
 	}
 
-	if (GetAsyncKeyState(VK_UP) & 0x8000)
+	if (KeyManager::getInst()->keyPressed(VK_UP))
 	{
 		pos.y -= 100 * TimeManager::getInst()->getDT();
 	}
 
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+	if (KeyManager::getInst()->keyPressed(VK_DOWN))
 	{
 		pos.y += 100 * TimeManager::getInst()->getDT();
 	}
@@ -69,6 +70,7 @@ void Core::render()
 void Core::init()
 {
 	TimeManager::getInst()->init();
+	KeyManager::getInst()->init();
 
 	m_hDC = GetDC(hWnd);
 
