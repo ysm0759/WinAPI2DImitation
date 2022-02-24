@@ -13,9 +13,9 @@ public:
 	void update();
 	void init();
 
-	bool keyPressed(const int key);      // 키가 눌려진 상태 true
-	bool keyReleased(const int key);     // 키가 내려간 순간 true
-	bool keyDown(const int key);		 // 키가 내려간 순간 true
+	bool keyPressed(const int _key);      // 키가 눌려진 상태 true
+	bool keyReleased(const int _key);     // 키가 내려간 순간 true
+	bool keyDown(const int _key);		 // 키가 내려간 순간 true
 
 };
 

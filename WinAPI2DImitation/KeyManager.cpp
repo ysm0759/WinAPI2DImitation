@@ -57,21 +57,21 @@ void KeyManager::init()
 }
 
 
-bool KeyManager::keyPressed(const int key)
+bool KeyManager::keyPressed(const int _key)
 {
 	//최근키가 눌렸으면서 이전키도 눌려있으면 눌린상태
-	return (true == m_arrCurKey[key] && true == m_arrPrevKey[key]);
+	return (true == m_arrCurKey[_key] && true == m_arrPrevKey[_key]);
 }
 
-bool KeyManager::keyReleased(const int key)
+bool KeyManager::keyReleased(const int _key)
 {
 	// 최근키가 안눌리고 이전키가 눌려있으면 뗀 상태
-	return (false == m_arrCurKey[key] && true == m_arrPrevKey[key]);
+	return (false == m_arrCurKey[_key] && true == m_arrPrevKey[_key]);
 }
 
-bool KeyManager::keyDown(const int key)
+bool KeyManager::keyDown(const int _key)
 {
 	// 최근키가 눌리고 이전키가 안눌려있었으면 눌린시작점
-	return (true == m_arrCurKey[key] && false == m_arrPrevKey[key]);
+	return (true == m_arrCurKey[_key] && false == m_arrPrevKey[_key]);
 }
 

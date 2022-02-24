@@ -16,8 +16,16 @@
 #include <memory.h>
 #include <tchar.h>
 #include <string>
+#include <vector>
+
+using std::vector;
+using std::string;
+using std::wstring;
 
 
+
+// 제작 헤더파일
+#include "Define.h"
 #include "Singleton.h"
 #include "fPoint.h"
 #include "Core.h"
@@ -25,18 +33,7 @@
 #include "TimeManager.h"
 #include "KeyManager.h"
 #include "Player.h"
-// 전역 변수용
-
-
-// WINDOW 관련 DEFINE문
-#define WINSTARTX   100
-#define WINSTARTY   100
-#define WINSIZEX	1280
-#define	WINSIZEY	720
-#define WINSTYLE	WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
-
-
-// 게임 관련 DEFINE문
+#include "SceneManager.h"
 
 
 

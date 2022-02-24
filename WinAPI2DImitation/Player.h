@@ -3,7 +3,7 @@ class Player : public GameObject
 {
 
 public:
-	Player(fPoint _pos, fPoint _scale);
+	Player(fPoint _pos);
 	~Player();
 	
 	virtual void update();

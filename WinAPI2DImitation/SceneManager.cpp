@@ -1,0 +1,55 @@
+#include "framework.h"
+#include "SceneManager.h"
+#include "StartScene.h"
+
+// SceneManager -> update(); 호출하면
+// SceneManager 현재 씬에 (curScene)
+// Scene 씬이 가지고 있는 오브젝트들을 
+// GameObject -> update 호출한다.  
+
+SceneManager::SceneManager()
+{
+	// SceneManager 각 씬들의 기본값 nullptr 초기화
+	for (int i = 0; i < (int)SCENE_GROUP::SIZE; i++)
+	{
+		m_arrScene[i] = nullptr;
+	}
+	m_pCurScene = nullptr;
+}
+
+
+SceneManager::~SceneManager()
+{
+
+	for (int i = 0; i < (int)SCENE_GROUP::SIZE; i++)
+	{
+		if (nullptr != m_arrScene[i])
+		{
+			delete m_arrScene[i];
+		}
+	}
+}
+
+
+void SceneManager::update()
+{
+	//현재 가르키고 있는 scene만 업데이트
+	m_pCurScene->update();
+}
+
+void SceneManager::render(HDC _hDC)
+{
+	// 현재 가르키고 있는 scene 만 render
+	m_pCurScene->render(_hDC);
+}
+
+
+void SceneManager::init()
+{
+	// 초기화면 
+	m_arrScene[(int)SCENE_GROUP::START_SCENE] = new StartScene;
+	m_arrScene[(int)SCENE_GROUP::START_SCENE]->setName(L"Start_Scene");
+
+	m_pCurScene = m_arrScene[(int)SCENE_GROUP::START_SCENE];
+	m_pCurScene->enter();
+}

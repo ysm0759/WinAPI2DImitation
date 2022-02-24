@@ -2,10 +2,10 @@
 #include "Player.h"
 
 
-Player::Player(fPoint _pos , fPoint _scale)
+Player::Player(fPoint _pos )
 {
 	this->setPos(_pos);
-	this->setScale(_scale);
+	this->setScale(fPoint( (float)PLAYER_SIZE_X , (float)PLAYER_SIZE_Y ) );
 }
 
 Player::~Player()
@@ -16,24 +16,24 @@ Player::~Player()
 void Player::update()
 {
 	fPoint playerPos = getPos();
-	if (KeyManager::getInst()->keyPressed(VK_LEFT))
+	if (KEYPRESSED(VK_LEFT))
 	{
-		playerPos.x -= (float)(100 * TimeManager::getInst()->getDT());
+		playerPos.x -= (float)(PLAYER_SPEED * DT);
 	}
 
-	if (KeyManager::getInst()->keyPressed(VK_RIGHT))
+	if (KEYPRESSED(VK_RIGHT))
 	{
-		playerPos.x += (float)(100 * TimeManager::getInst()->getDT());
+		playerPos.x += (float)(PLAYER_SPEED * DT);
 	}
 
-	if (KeyManager::getInst()->keyPressed(VK_UP))
+	if (KEYRELEASED(VK_UP))
 	{
-		playerPos.y -= (float)(100 * TimeManager::getInst()->getDT());
+		playerPos.y -= (float)(PLAYER_SPEED * DT);
 	}
 
-	if (KeyManager::getInst()->keyPressed(VK_DOWN))
+	if (KEYDOWN(VK_DOWN))
 	{
-		playerPos.y += (float)(100 * TimeManager::getInst()->getDT());
+		playerPos.y += (float)(PLAYER_SPEED * DT);
 	}
 
 	setPos(playerPos);
