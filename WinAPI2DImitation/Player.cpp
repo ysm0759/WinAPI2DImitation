@@ -62,18 +62,18 @@ void Player::createMissile()
 	Scene* pCurScene = CURSCENE;
 	fPoint missilePos = this->getPos();
 	
+	//Áß·Â¾ø´Â Åº
 	Missile* missile1 = new Missile(Vec2(100, 100), missilePos);
-	Missile* missile2 = new Missile(Vec2(100, -100), missilePos);
-	Missile* missile3 = new Missile(Vec2(100, 0), missilePos);
-	Missile* missile4 = new Missile(Vec2(0, -100), missilePos);
-	Missile* missile5 = new Missile(Vec2(100, 50), missilePos);
-	Missile* missile6 = new Missile(Vec2(1280- missilePos.x, 0 - missilePos.y) , missilePos);
+	Missile* missile2 = new Missile(Vec2(100, -100), missilePos );
+	Missile* missile3 = new Missile(Vec2(1280- missilePos.x, 0 - missilePos.y) , missilePos );
+	
+	// Áß·ÂÀÖ´ÂÅº
+	Missile* missile4 = new Missile(Vec2(100, -100), missilePos,true);
 
 	pCurScene->AddObject(missile1, GAMEOBJ_GROUP::MISSILE);
 	pCurScene->AddObject(missile2, GAMEOBJ_GROUP::MISSILE);
 	pCurScene->AddObject(missile3, GAMEOBJ_GROUP::MISSILE);
 	pCurScene->AddObject(missile4, GAMEOBJ_GROUP::MISSILE);
-	pCurScene->AddObject(missile5, GAMEOBJ_GROUP::MISSILE);
-	pCurScene->AddObject(missile6, GAMEOBJ_GROUP::MISSILE);
+
 
 }
