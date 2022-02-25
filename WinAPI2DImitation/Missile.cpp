@@ -15,7 +15,7 @@ Missile::Missile()
 Missile::Missile(Vec2 _vec2, fPoint _pos)
 {
 
-	this->m_fVelocity = 50;
+	this->m_fVelocity = 200;
 	this->m_fvDir = _vec2;
 	this->setPos(_pos);
 
@@ -33,8 +33,9 @@ void Missile::update()
 	// 현재 가장 문제가 있다.
 	// 대각선탄환과 직선 탄환이 속도가 다르다는거
 	// 이를 해결하기위해 정규화 해주어야 한다. (nomalize)
-  	missilePos.x += m_fvDir.x * m_fVelocity * FDT;
-	missilePos.y += m_fvDir.y * m_fVelocity * FDT;
+
+  	missilePos.x += m_fvDir.normalize().x * m_fVelocity * FDT;
+	missilePos.y += m_fvDir.normalize().y * m_fVelocity * FDT;
 
 	setPos(missilePos);
 }
