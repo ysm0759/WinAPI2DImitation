@@ -13,6 +13,7 @@ TimeManager::~TimeManager()
 
 void TimeManager::update()
 {
+
 	static unsigned int updateCount = 0;
 	static double updateOneSecond = 0;
 
@@ -23,19 +24,24 @@ void TimeManager::update()
 	m_llPrevCount = m_llCurCount;
 
 	++updateCount;
-	updateOneSecond += m_dDT;
-	if (updateOneSecond >= 1.0)
-	{
+	updateOneSecond += m_dDT; // 걸린시간 누적
+	if (updateOneSecond >= 1.0) // 시간이 1초가 되면
+	{ // 다시 FPS 프레임 계산 , 초기화
 		m_uiFPS = updateCount;
 
 		updateOneSecond = 0;
 		updateCount = 0;
 	}
+	
+
+	
 }
 
 void TimeManager::init()
 {
-	QueryPerformanceCounter(&m_llCurCount);
+	// init 함수가 호출될 때 m_llPrevCount에 입력	
+	QueryPerformanceCounter(&m_llPrevCount);
+	// 초당 카운트 횟수
 	QueryPerformanceFrequency(&m_llFrequency);
 }
 
@@ -47,4 +53,9 @@ unsigned int TimeManager::getFPS()
 double TimeManager::getDT()
 {
 	return m_dDT;
+}
+
+float TimeManager::getFDT()
+{
+	return (float)m_dDT;
 }

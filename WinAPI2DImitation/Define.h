@@ -10,10 +10,13 @@
 
 // Maneger 관련
 #define DT TimeManager::getInst()->getDT()
+#define FDT TimeManager::getInst()->getFDT()
+
 #define KEYPRESSED(VK_KEY) KeyManager::getInst()->keyPressed(VK_KEY)
 #define KEYRELEASED(VK_KEY) KeyManager::getInst()->keyReleased(VK_KEY)
 #define KEYDOWN(VK_KEY) KeyManager::getInst()->keyDown(VK_KEY)
 
+#define CURSCENE SceneManager::getInst()->getCurScene()
 
 // Object 관련
 // 오브젝트 그리는 순서 순위가 낮을 수록 마지막에 그려져 가장 맨위에 나타난다. 
@@ -23,6 +26,7 @@ enum class GAMEOBJ_GROUP
 	DEFAULT,
 	PLAYER,
 	MONSTER,
+	MISSILE,
 	SIZE,
 };
 

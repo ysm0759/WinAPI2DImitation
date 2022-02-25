@@ -37,6 +37,12 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{eaae1709-39d4-43a5-942a-48192d953421}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Monster">
+      <UniqueIdentifier>{2aa02314-5573-4b7c-a95d-72051a11f8cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Missile">
+      <UniqueIdentifier>{fcbc4eff-ca28-4f11-b8d6-e22f5f0beea4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -84,6 +90,12 @@
     <ClInclude Include="StartScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Missile.h">
+      <Filter>Object\Missile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -112,6 +124,12 @@
     </ClCompile>
     <ClCompile Include="StartScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Missile.cpp">
+      <Filter>Object\Missile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

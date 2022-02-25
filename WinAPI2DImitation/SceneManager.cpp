@@ -53,3 +53,8 @@ void SceneManager::init()
 	m_pCurScene = m_arrScene[(int)SCENE_GROUP::START_SCENE];
 	m_pCurScene->enter();
 }
+
+Scene* SceneManager::getCurScene()
+{
+	return this->m_pCurScene;
+}
