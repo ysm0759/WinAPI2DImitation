@@ -123,6 +123,9 @@
     <ClInclude Include="ColliderManager.h">
       <Filter>Engine\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Engine\Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -172,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="ColliderManager.cpp">
       <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Engine\Component\Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

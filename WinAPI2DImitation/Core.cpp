@@ -46,13 +46,15 @@ void Core::render()
 
 void Core::init()
 {
+
+	PathManager::getInst()->init();
 	TimeManager::getInst()->init();
 	KeyManager::getInst()->init();
 	SceneManager::getInst()->init();
-	PathManager::getInst()->init();
+
+
 
 	m_hDC = GetDC(hWnd);
-
 
 
 	m_hMemDC = CreateCompatibleDC(m_hDC);
