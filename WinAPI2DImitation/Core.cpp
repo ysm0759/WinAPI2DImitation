@@ -5,7 +5,9 @@
 Core::Core()
 {
 	// 게임 화면을 그리기 위한 DC 핸들값 초기화
-	m_hDC = 0;
+	m_hDC = 0 ;
+	m_hMemDC = 0 ;
+	m_hBMP = 0;
 }
 
 Core::~Core()
@@ -47,6 +49,8 @@ void Core::init()
 	TimeManager::getInst()->init();
 	KeyManager::getInst()->init();
 	SceneManager::getInst()->init();
+	PathManager::getInst()->init();
+
 	m_hDC = GetDC(hWnd);
 
 
@@ -58,4 +62,16 @@ void Core::init()
 	DeleteObject(hOldBitmap);
 
 
+}
+
+HDC Core::getMainDC()
+{
+
+	return this->m_hDC;
+	// TODO: 여기에 return 문을 삽입합니다.
+}
+
+HDC Core::getMemDC()
+{
+	return m_hMemDC;
 }

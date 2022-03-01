@@ -2,9 +2,13 @@
 #include "Player.h"
 #include "Scene.h"
 #include "Missile.h"
+#include "ResourceManager.h"
+#include "Texture.h"
 
 Player::Player(fPoint _pos)
 {
+	m_pTex = ResourceManager::getInst()->loadTexture(L"PlayerTex", L"texture\\Player.bmp");
+
 	this->setPos(_pos);
 	this->setScale(fPoint((float)PLAYER_SIZE_X, (float)PLAYER_SIZE_Y));
 }
@@ -48,12 +52,25 @@ void Player::update()
 
 void Player::render(HDC _hDC)
 {
+	int width = (int)(m_pTex->getBmpWidth());
+	int height = (int)(m_pTex->getBmpHeight());
+	fPoint pos = getPos();
 
-	Rectangle(_hDC,
-		(int)(getPos().x - getScale().x / 2),
-		(int)(getPos().y - getScale().y / 2),
-		(int)(getPos().x + getScale().x / 2),
-		(int)(getPos().y + getScale().y / 2));
+
+	TransparentBlt(
+		_hDC,										//[in] HDC  hdcDest,		
+		(int)(pos.x - (float)(width / 2)),  		//[in] int  xoriginDest,    
+		(int)(pos.y - (float)(height / 2)),			//[in] int  yoriginDest,	
+		width,										//[in] int  wDest,			
+		height,										//[in] int  hDest,			
+		m_pTex->getDC(),     						//[in] HDC  hdcSrc,
+		0,											//[in] int  xoriginSrc,
+		0,											//[in] int  yoriginSrc,
+		width,										//[in] int  wSrc,
+		height, 									//[in] int  hSrc,
+		RGB(255, 0, 255)); 							//[in] UINT crTransparent
+													
+
 
 }
 

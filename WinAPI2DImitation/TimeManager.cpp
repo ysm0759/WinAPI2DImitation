@@ -3,7 +3,11 @@
 
 TimeManager::TimeManager()
 {
-
+	m_llCurCount = { 0 };
+	m_llPrevCount = { 0 };
+	m_llFrequency = { 0 };
+	m_uiFPS = 0;
+	m_dDT = 0;
 }
 
 TimeManager::~TimeManager()

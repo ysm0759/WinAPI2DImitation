@@ -28,3 +28,20 @@
 #define _APS_NEXT_SYMED_VALUE		110
 #endif
 #endif
+
+class Resource
+{
+private:
+	wstring m_strKey;
+	wstring m_strRelativePath;
+
+public:
+	Resource();
+	virtual ~Resource();
+
+	void setKey(const wstring& _strKey);
+	void setRelativePath(const wstring& _strPath);
+
+	const wstring& getKey();
+	const wstring& getRelativePath();
+};

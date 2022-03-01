@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/WinAPI2DImitation/ColliderManager.h
+/WinAPI2DImitation/ColliderManager.cpp

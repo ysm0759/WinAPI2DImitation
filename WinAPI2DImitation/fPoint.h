@@ -38,7 +38,7 @@ struct Vec2
 	Vec2& normalize()
 	{
 		// 대각선의 길이를 구해준다음에
-		float length = (float)sqrt(x * x + y * y);
+		float length = (float)sqrt((double)(x * x + y * y));
 
 		assert(length != 0.f);
 		/***
