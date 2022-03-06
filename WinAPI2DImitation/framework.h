@@ -27,7 +27,7 @@ using std::vector;
 using std::string;
 using std::wstring;
 using std::map;
-
+using std::make_pair;
 
 // 제작 헤더파일
 #include "Define.h"
@@ -43,6 +43,8 @@ using std::map;
 #include "KeyManager.h"
 #include "SceneManager.h"
 #include "PathManager.h"
+#include "CollisionManager.h"
+#include "SelectGDI.h"
 
 
 //전역변수(인스턴스, 윈도우 핸들)

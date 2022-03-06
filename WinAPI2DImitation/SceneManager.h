@@ -7,7 +7,7 @@ class SceneManager
 	SINGLETON(SceneManager);
 	
 private:
-	Scene* m_arrScene[(int)SCENE_GROUP::SIZE];
+	Scene* m_arrScene[(int)GROUP_SCENE::SIZE];
 	Scene* m_pCurScene;
 
 public:

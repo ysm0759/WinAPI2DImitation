@@ -120,11 +120,14 @@
     <ClInclude Include="Logger.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="ColliderManager.h">
-      <Filter>Engine\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>Engine\Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectGDI.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,11 +176,11 @@
     <ClCompile Include="Resource.cpp">
       <Filter>Resource</Filter>
     </ClCompile>
-    <ClCompile Include="ColliderManager.cpp">
-      <Filter>Engine\Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Collider.cpp">
       <Filter>Engine\Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Engine\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

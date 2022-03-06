@@ -3,13 +3,13 @@ class Missile : public GameObject
 {
 
 private :
-	Vec2 m_fvDir;
+	fVec2 m_fvDir;
 	float m_fVelocity;
 	bool m_bIsGravity;
 	float m_fGravity;
 public:
 	Missile();
-	Missile(Vec2 _vec2, fPoint _pos , bool _isGravity = false);
+	Missile(fVec2 _vec2, fPoint _pos , bool _isGravity = false);
 	~Missile();
 
 

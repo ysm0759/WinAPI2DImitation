@@ -22,14 +22,15 @@ void StartScene::enter()
 	GameObject* pPlayer = new Player(fPoint(100.f,100.f));
 	pPlayer->setPos(fPoint(200, 200));
 	pPlayer->setScale(fPoint(100, 100));
-	AddObject(pPlayer, GAMEOBJ_GROUP::PLAYER);
+	addObject(pPlayer, GROUP_GAMEOBJ::PLAYER);
 
   	GameObject* pMonster = new Monster();
 	pMonster->setPos(fPoint(300, 200));
 	pMonster->setScale(fPoint(100, 100));
-	AddObject(pMonster, GAMEOBJ_GROUP::MONSTER);
+	addObject(pMonster, GROUP_GAMEOBJ::MONSTER);
 
-
+	CollisionManager::getInst()->CheckGroup(GROUP_GAMEOBJ::PLAYER, GROUP_GAMEOBJ::MONSTER);
+	CollisionManager::getInst()->CheckGroup(GROUP_GAMEOBJ::MISSILE, GROUP_GAMEOBJ::MONSTER);
 }
 
 
@@ -40,3 +41,4 @@ void StartScene::exit()
 {
 
 }
+

@@ -6,7 +6,7 @@ class Scene
 {
 
 private:
-	vector<GameObject*> m_arrObj[(int)GAMEOBJ_GROUP::SIZE]; // 상속받은 씬이 가지고 있어야할 오브젝트들
+	vector<GameObject*> m_arrObj[(int)GROUP_GAMEOBJ::SIZE]; // 상속받은 씬이 가지고 있어야할 오브젝트들
 	wstring m_sceneName; // 씬 이름
 
 public:
@@ -14,6 +14,7 @@ public:
 	virtual ~Scene();
 
 	virtual void update();			// 가지고 있는 오브젝트들을 모두 갱신 해주는 함수
+	virtual void finalUpdate();
 	virtual void render(HDC _hDC);	// 가지고 있는 오브젝트들을 모드 그려주는 함수
 
 	virtual void enter() = 0;		// 각 씬들이 시작할 떄 넣야하는 object를 넣어줘야하는 함수
@@ -23,8 +24,10 @@ public:
 	void setName(const wstring& _sceneName);
 	wstring getName();
 
-	void AddObject(GameObject* _pObj, GAMEOBJ_GROUP _type); // 씬에 오브젝트들을 type별로 넣어주는 함수 
-
+	void addObject(GameObject* _pObj, GROUP_GAMEOBJ _type); // 씬에 오브젝트들을 type별로 넣어주는 함수 
+	const vector<GameObject*>& getGroupObject(GROUP_GAMEOBJ _group);
+	void deleteGroup(GROUP_GAMEOBJ _group);
+	void deleteAll();
 
 };
 

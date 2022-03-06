@@ -1,11 +1,13 @@
 #include "framework.h"
 #include "Monster.h"
-
+#include "Collider.h"
 Monster::Monster()
 {
 	this->isUp = true;
 	this->velocity = 500;
 
+	createCollider();
+	getCollider()->setScale(fPoint(90.f, 90.f));
 }
 
 Monster::~Monster()
@@ -31,10 +33,12 @@ void Monster::update()
 
 void Monster::render(HDC _hDC)
 {
-
+	
 	Rectangle(_hDC,
 		(int)(getPos().x - getScale().x / 2),
 		(int)(getPos().y - getScale().y / 2),
 		(int)(getPos().x + getScale().x / 2),
 		(int)(getPos().y + getScale().y / 2));
+
+	componentRender(_hDC);
 }

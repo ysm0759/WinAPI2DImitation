@@ -10,7 +10,7 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-	for (int i = 0; i < (int)GAMEOBJ_GROUP::SIZE; i++)
+	for (int i = 0; i < (int)GROUP_GAMEOBJ::SIZE; i++)
 	{
 		for (int j = 0; j < m_arrObj[i].size(); j++)
 		{
@@ -22,7 +22,7 @@ Scene::~Scene()
 void Scene::update()
 {
 
-	for (int i = 0; i < (int)GAMEOBJ_GROUP::SIZE; i++)
+	for (int i = 0; i < (int)GROUP_GAMEOBJ::SIZE; i++)
 	{
 		for (int j = 0; j < m_arrObj[i].size(); j++)
 		{
@@ -31,14 +31,28 @@ void Scene::update()
 	}
 
 }
-void Scene::render(HDC _hDC)
+void Scene::finalUpdate()
 {
-
-	for (int i = 0; i < (int)GAMEOBJ_GROUP::SIZE; i++)
+	// 씬이 가진 모든 오브젝트 finalupdate
+	for (int i = 0; i < (int)GROUP_GAMEOBJ::SIZE; i++)
 	{
 		for (int j = 0; j < m_arrObj[i].size(); j++)
 		{
-			m_arrObj[i][j]->render(_hDC);
+			m_arrObj[i][j]->finalUpdate();
+		}
+	}
+}
+void Scene::render(HDC _hDC)
+{
+
+	for (int i = 0; i < (int)GROUP_GAMEOBJ::SIZE; i++)
+	{
+		for (vector<GameObject*>::iterator iter = m_arrObj[i].begin();
+			iter != m_arrObj[i].end(); )
+		{
+
+				(*iter)->render(_hDC);
+				iter++;
 		}
 	}
 }
@@ -54,7 +68,32 @@ wstring Scene::getName()
 	return m_sceneName;
 }
 
-void Scene::AddObject(GameObject* _pObj, GAMEOBJ_GROUP _type)
+void Scene::addObject(GameObject* _pObj, GROUP_GAMEOBJ _type)
 {
 	m_arrObj[(int)_type].push_back(_pObj);
 }
+
+const vector<GameObject*>& Scene::getGroupObject(GROUP_GAMEOBJ _group)
+{
+	return m_arrObj[(UINT)_group];
+}
+
+void Scene::deleteGroup(GROUP_GAMEOBJ _group)
+{
+	for (int i = 0; i < m_arrObj[(UINT)_group].size(); i++)
+	{
+		delete m_arrObj[(UINT)_group][i];
+	}
+	m_arrObj[(UINT)_group].clear();
+}
+
+void Scene::deleteAll()
+{
+	for (int i = 0; i < (UINT)GROUP_GAMEOBJ::SIZE; i++)
+	{
+		deleteGroup((GROUP_GAMEOBJ)i);
+	}
+}
+
+
+

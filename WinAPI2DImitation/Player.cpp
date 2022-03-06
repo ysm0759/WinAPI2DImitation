@@ -4,6 +4,7 @@
 #include "Missile.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "Collider.h"
 
 Player::Player(fPoint _pos)
 {
@@ -11,6 +12,10 @@ Player::Player(fPoint _pos)
 
 	this->setPos(_pos);
 	this->setScale(fPoint((float)PLAYER_SIZE_X, (float)PLAYER_SIZE_Y));
+
+	createCollider();
+	getCollider()->setScale(fPoint(40.f, 40.f));
+	getCollider()->setOffsetPos(fPoint(0.f, 10.f));
 }
 
 Player::~Player()
@@ -71,6 +76,7 @@ void Player::render(HDC _hDC)
 		RGB(255, 0, 255)); 							//[in] UINT crTransparent
 													
 
+	componentRender(_hDC);
 
 }
 
@@ -80,17 +86,18 @@ void Player::createMissile()
 	fPoint missilePos = this->getPos();
 	
 	//Áß·Â¾ø´Â Åº
-	Missile* missile1 = new Missile(Vec2(100, 100), missilePos);
-	Missile* missile2 = new Missile(Vec2(100, -100), missilePos );
-	Missile* missile3 = new Missile(Vec2(1280- missilePos.x, 0 - missilePos.y) , missilePos );
-	
+	Missile* missile1 = new Missile(fVec2(100, 100), missilePos);
 	// Áß·ÂÀÖ´ÂÅº
-	Missile* missile4 = new Missile(Vec2(100, -100), missilePos,true);
+	Missile* missile2 = new Missile(fVec2(100, -100), missilePos,true);
 
-	pCurScene->AddObject(missile1, GAMEOBJ_GROUP::MISSILE);
-	pCurScene->AddObject(missile2, GAMEOBJ_GROUP::MISSILE);
-	pCurScene->AddObject(missile3, GAMEOBJ_GROUP::MISSILE);
-	pCurScene->AddObject(missile4, GAMEOBJ_GROUP::MISSILE);
+	pCurScene->addObject(missile1, GROUP_GAMEOBJ::MISSILE);
+	pCurScene->addObject(missile2, GROUP_GAMEOBJ::MISSILE);
 
+	
 
+}
+
+Player* Player::Clone()
+{
+	return this;
 }

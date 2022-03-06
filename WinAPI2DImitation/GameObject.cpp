@@ -1,21 +1,27 @@
 #include "framework.h"
 #include "GameObject.h"
+#include "Collider.h"
 
 GameObject::GameObject()
 {
 	m_fptPos = fPoint();
 	m_fptScale = fPoint();
+	m_pCollider = nullptr;
 }
 
 GameObject::GameObject(fPoint pos, fPoint scale)
 {
 	m_fptPos = pos;
 	m_fptScale = scale;
+	m_pCollider = nullptr;
 }
 
 GameObject::~GameObject()
 {
-
+	if (nullptr != m_pCollider)
+	{
+		delete m_pCollider;
+	}
 }
 
 void GameObject::setPos(fPoint pos)
@@ -45,9 +51,35 @@ void GameObject::update()
 
 }
 
-void GameObject::render(HDC hDC)
+void GameObject::finalUpdate()
 {
+	if (nullptr != m_pCollider)
+	{
+		m_pCollider->finalUpdate();
+	}
+}
 
+void GameObject::render(HDC _hDC)
+{
+}
+
+void GameObject::componentRender(HDC _hDC)
+{
+	if (nullptr != m_pCollider)
+	{
+		m_pCollider->render(_hDC);
+	}
+}
+
+Collider* GameObject::getCollider()
+{
+	return m_pCollider;
+}
+
+void GameObject::createCollider()
+{
+	m_pCollider = new Collider();
+	m_pCollider->m_pOwner = this;
 }
 
 

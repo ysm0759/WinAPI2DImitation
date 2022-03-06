@@ -8,6 +8,8 @@ Core::Core()
 	m_hDC = 0 ;
 	m_hMemDC = 0 ;
 	m_hBMP = 0;
+	m_arrPen[0] = 0;
+	m_arrBrush[0] = 0;
 }
 
 Core::~Core()
@@ -16,6 +18,11 @@ Core::~Core()
 	ReleaseDC(hWnd, m_hDC);
 	DeleteObject(m_hMemDC);
 	DeleteObject(m_hBMP);
+
+	for (int i = 0; i < (int)TYPE_PEN::SIZE; i++)
+	{
+		DeleteObject(m_arrPen[i]);
+	}
 }
 
 void Core::update()
@@ -23,7 +30,7 @@ void Core::update()
 	TimeManager::getInst()->update();
 	KeyManager::getInst()->update();
 	SceneManager::getInst()->update();
-
+	CollisionManager::getInst()->update();
 	
 }
 
@@ -46,12 +53,14 @@ void Core::render()
 
 void Core::init()
 {
+	// GDI
+	createBrushPen();
 
 	PathManager::getInst()->init();
 	TimeManager::getInst()->init();
 	KeyManager::getInst()->init();
 	SceneManager::getInst()->init();
-
+	CollisionManager::getInst()->init();
 
 
 	m_hDC = GetDC(hWnd);
@@ -76,4 +85,26 @@ HDC Core::getMainDC()
 HDC Core::getMemDC()
 {
 	return m_hMemDC;
+}
+
+
+void Core::createBrushPen()
+{
+	// brush
+	m_arrBrush[(int)TYPE_BRUSH::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+
+	// pen
+	m_arrPen[(int)TYPE_PEN::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+	m_arrPen[(int)TYPE_PEN::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	m_arrPen[(int)TYPE_PEN::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
+}
+
+HBRUSH Core::getBrush(TYPE_BRUSH _type)
+{
+	return m_arrBrush[(int)_type];
+}
+
+HPEN Core::getPen(TYPE_PEN _type)
+{
+	return m_arrPen[(int)_type];
 }

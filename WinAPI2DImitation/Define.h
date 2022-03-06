@@ -1,4 +1,4 @@
-
+#pragma once
 
 // WINDOW 관련
 #define WINSTARTX   100
@@ -21,12 +21,38 @@
 // Object 관련
 // 오브젝트 그리는 순서 순위가 낮을 수록 마지막에 그려져 가장 맨위에 나타난다. 
 //배경은 순위가 1위로 맨처음 그리고 그위에 모든 오브젝트들을 그려줘야함
-enum class GAMEOBJ_GROUP
+
+
+
+
+enum class GROUP_GAMEOBJ
 {
 	DEFAULT,
 	PLAYER,
 	MONSTER,
 	MISSILE,
+	SIZE,
+};
+
+
+enum class GROUP_SCENE
+{
+	START_SCENE,
+	SIZE,
+};
+
+enum class TYPE_BRUSH
+{
+	HOLLOW,
+	SIZE,
+};
+
+
+enum class TYPE_PEN
+{
+	RED,
+	GREEN,
+	BLUE,
 	SIZE,
 };
 
@@ -37,12 +63,3 @@ enum class GAMEOBJ_GROUP
 #define PLAYER_SIZE_Y 100
 
 
-
-//Scene 관련
-enum class SCENE_GROUP
-{
-	START_SCENE,
-	STAGE1,
-	STAGE2,
-	SIZE,
-};

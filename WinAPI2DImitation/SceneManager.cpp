@@ -10,7 +10,7 @@
 SceneManager::SceneManager()
 {
 	// SceneManager 각 씬들의 기본값 nullptr 초기화
-	for (int i = 0; i < (int)SCENE_GROUP::SIZE; i++)
+	for (int i = 0; i < (int)GROUP_SCENE::SIZE; i++)
 	{
 		m_arrScene[i] = nullptr;
 	}
@@ -21,7 +21,7 @@ SceneManager::SceneManager()
 SceneManager::~SceneManager()
 {
 
-	for (int i = 0; i < (int)SCENE_GROUP::SIZE; i++)
+	for (int i = 0; i < (int)GROUP_SCENE::SIZE; i++)
 	{
 		if (nullptr != m_arrScene[i])
 		{
@@ -35,6 +35,7 @@ void SceneManager::update()
 {
 	//현재 가르키고 있는 scene만 업데이트
 	m_pCurScene->update();
+	m_pCurScene->finalUpdate();
 }
 
 void SceneManager::render(HDC _hDC)
@@ -47,10 +48,10 @@ void SceneManager::render(HDC _hDC)
 void SceneManager::init()
 {
 	// 초기화면 
-	m_arrScene[(int)SCENE_GROUP::START_SCENE] = new StartScene;
-	m_arrScene[(int)SCENE_GROUP::START_SCENE]->setName(L"Start_Scene");
+	m_arrScene[(int)GROUP_SCENE::START_SCENE] = new StartScene;
+	m_arrScene[(int)GROUP_SCENE::START_SCENE]->setName(L"Start_Scene");
 
-	m_pCurScene = m_arrScene[(int)SCENE_GROUP::START_SCENE];
+	m_pCurScene = m_arrScene[(int)GROUP_SCENE::START_SCENE];
 	m_pCurScene->enter();
 }
 

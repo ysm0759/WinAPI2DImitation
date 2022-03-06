@@ -1,20 +1,21 @@
 #include "framework.h"
 #include "Missile.h"
-
+#include "Collider.h"
 
 
 Missile::Missile()
 {
 	this->m_fVelocity = 0;
-	this->m_fvDir = Vec2(0.f, 0.f);
+	this->m_fvDir = fVec2(0.f, 0.f);
 	this->m_bIsGravity = false;
 	this->m_fGravity = 0;
 	this->setPos(fPoint(0.f, 0.f));
 	this->setScale(fPoint(0.f, 0.f));
-
+	createCollider();
+	getCollider()->setScale(fPoint(23.f, 23.f));
 }
 
-Missile::Missile(Vec2 _vec2, fPoint _pos, bool _isGravity)
+Missile::Missile(fVec2 _vec2, fPoint _pos, bool _isGravity)
 {
 
 	this->m_fVelocity = 200;
@@ -24,6 +25,8 @@ Missile::Missile(Vec2 _vec2, fPoint _pos, bool _isGravity)
 	this->setPos(_pos);
 	this->setScale(fPoint(25.f, 25.f));
 
+	createCollider();
+	getCollider()->setScale(fPoint(23.f, 23.f));
 }
 
 Missile::~Missile()
@@ -77,4 +80,7 @@ void Missile::render(HDC _hDC)
 			(int)(getPos().x + getScale().x / 2.f),
 			(int)(getPos().y + getScale().y / 2.f));
 	}
+	
+	
+	componentRender(_hDC);
 }
