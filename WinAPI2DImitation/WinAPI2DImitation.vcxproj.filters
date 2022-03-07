@@ -76,6 +76,12 @@
     <Filter Include="Engine\Manager\EventManager">
       <UniqueIdentifier>{61cd6737-4616-42cc-bd25-82f541c86c6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\SceneTool">
+      <UniqueIdentifier>{d09c4532-42dc-497d-a0ba-fe478bfb72b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\SceneStart">
+      <UniqueIdentifier>{953cb6c5-0f8c-4897-bfa5-8a0dd836f0a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -106,9 +112,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="StartScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
@@ -153,6 +156,12 @@
     <ClInclude Include="EventManager.h">
       <Filter>Engine\Manager\EventManager</Filter>
     </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>Scene\SceneStart</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTool.h">
+      <Filter>Scene\SceneTool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -168,9 +177,6 @@
       <Filter>Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="StartScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
@@ -208,6 +214,12 @@
     </ClCompile>
     <ClCompile Include="EventManager.cpp">
       <Filter>Engine\Manager\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>Scene\SceneStart</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTool.cpp">
+      <Filter>Scene\SceneTool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

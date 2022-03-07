@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "SceneManager.h"
 #include "StartScene.h"
-
+#include "SceneTool.h"
 // SceneManager -> update(); 호출하면
 // SceneManager 현재 씬에 (curScene)
 // Scene 씬이 가지고 있는 오브젝트들을 
@@ -47,6 +47,9 @@ void SceneManager::render(HDC _hDC)
 
 void SceneManager::init()
 {
+	m_arrScene[(size_t)GROUP_SCENE::TOOL_SCENE] = new SceneTool;
+	m_arrScene[(size_t)GROUP_SCENE::TOOL_SCENE]->setName(L"Tool_Scene");
+
 	// 초기화면 
 	m_arrScene[(int)GROUP_SCENE::START_SCENE] = new StartScene;
 	m_arrScene[(int)GROUP_SCENE::START_SCENE]->setName(L"Start_Scene");

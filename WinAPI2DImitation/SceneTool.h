@@ -1,11 +1,12 @@
 #pragma once
 #include "Scene.h"
 
-class StartScene : public Scene
+class SceneTool : public Scene
 {
 public:
-	StartScene();
-	virtual ~StartScene();
+	SceneTool();
+	~SceneTool();
+
 
 	virtual void update();
 	virtual void enter();

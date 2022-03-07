@@ -13,6 +13,15 @@ StartScene::~StartScene()
 {
 }
 
+void  StartScene::update()
+{
+	Scene::update();
+	
+	if (KEYDOWN(VK_ESCAPE))
+	{
+		CHANGESCN(GROUP_SCENE::TOOL_SCENE);
+	}
+}
 
 // 각 씬들이 넣어야하는 object를 넣어주는 함수
 void StartScene::enter()
@@ -42,6 +51,8 @@ void StartScene::enter()
 // 안지우면 메모리를 잡아먹지만 이전씬으로 이동했을때 몬스터들이 유지된다.
 void StartScene::exit()
 {
+	deleteAll();
 
+	CollisionManager::getInst()->Reset();
 }
 

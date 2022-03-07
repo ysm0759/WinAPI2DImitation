@@ -45,7 +45,7 @@ class ID
 	int _objID;
 public:
 
-	ID(UINT _objID)
+	ID( UINT _objID)
 	{
 		_objID = (UINT)_objID;
 	}
@@ -77,7 +77,10 @@ public:
 
 enum class GROUP_SCENE
 {
+	TOOL_SCENE,
 	START_SCENE,
+	STAGE_01,
+	STAGE_02,
 	SIZE,
 };
 

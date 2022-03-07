@@ -167,6 +167,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneTool.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="StartScene.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SceneTool.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
