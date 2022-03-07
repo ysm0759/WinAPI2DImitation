@@ -26,7 +26,8 @@ void Scene::update()
 	{
 		for (int j = 0; j < m_arrObj[i].size(); j++)
 		{
-			m_arrObj[i][j]->update();
+			if (!m_arrObj[i][j]->isDead())
+				m_arrObj[i][j]->update();
 		}
 	}
 
@@ -50,9 +51,15 @@ void Scene::render(HDC _hDC)
 		for (vector<GameObject*>::iterator iter = m_arrObj[i].begin();
 			iter != m_arrObj[i].end(); )
 		{
-
+			if (!(*iter)->isDead())
+			{
 				(*iter)->render(_hDC);
 				iter++;
+			}
+			else
+			{
+				iter = m_arrObj[i].erase(iter);
+			}
 		}
 	}
 }

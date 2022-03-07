@@ -59,3 +59,10 @@ Scene* SceneManager::getCurScene()
 {
 	return this->m_pCurScene;
 }
+
+void SceneManager::changeScene(GROUP_SCENE _scene)
+{
+	m_pCurScene->exit();
+	m_pCurScene = m_arrScene[(UINT)_scene];
+	m_pCurScene->enter();
+}

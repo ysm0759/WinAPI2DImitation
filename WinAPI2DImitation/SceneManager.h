@@ -4,11 +4,16 @@ class Scene;
 
 class SceneManager
 {
+
+	friend class EventManager;
+
 	SINGLETON(SceneManager);
-	
+
 private:
 	Scene* m_arrScene[(int)GROUP_SCENE::SIZE];
 	Scene* m_pCurScene;
+
+	void changeScene(GROUP_SCENE _scene);			// ¾À ÀüÈ¯
 
 public:
 	void update();

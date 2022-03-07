@@ -11,7 +11,7 @@ class Player : public GameObject
 public:
 	Player(fPoint _pos);
 	~Player();
-	virtual Player* Clone();
+	virtual Player* clone();
 	
 	virtual void update();
 	virtual void render(HDC hDC);

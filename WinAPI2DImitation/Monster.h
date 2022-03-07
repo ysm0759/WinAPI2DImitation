@@ -11,6 +11,8 @@ private:
 public:
 	Monster();
 	~Monster();
+	virtual Monster* clone();
+
 
 	virtual void update();
 	virtual void render(HDC _hDC);

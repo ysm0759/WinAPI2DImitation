@@ -12,7 +12,7 @@ Player::Player(fPoint _pos)
 
 	this->setPos(_pos);
 	this->setScale(fPoint((float)PLAYER_SIZE_X, (float)PLAYER_SIZE_Y));
-
+	this->setID((UINT)ID::PLAYER::DEFAULT);
 	createCollider();
 	getCollider()->setScale(fPoint(40.f, 40.f));
 	getCollider()->setOffsetPos(fPoint(0.f, 10.f));
@@ -90,14 +90,13 @@ void Player::createMissile()
 	// Áß·ÂÀÖ´ÂÅº
 	Missile* missile2 = new Missile(fVec2(100, -100), missilePos,true);
 
-	pCurScene->addObject(missile1, GROUP_GAMEOBJ::MISSILE);
-	pCurScene->addObject(missile2, GROUP_GAMEOBJ::MISSILE);
-
-	
+	CREATEOBJ(missile1, GROUP_GAMEOBJ::MISSILE_PLAYER);
+	CREATEOBJ(missile2, GROUP_GAMEOBJ::MISSILE_PLAYER);
 
 }
 
-Player* Player::Clone()
+
+Player* Player::clone()
 {
-	return this;
+	return new Player(*this);
 }

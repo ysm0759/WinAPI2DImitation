@@ -7,6 +7,7 @@ GameObject::GameObject()
 	m_fptPos = fPoint();
 	m_fptScale = fPoint();
 	m_pCollider = nullptr;
+	m_bAlive = true;
 }
 
 GameObject::GameObject(fPoint pos, fPoint scale)
@@ -14,6 +15,7 @@ GameObject::GameObject(fPoint pos, fPoint scale)
 	m_fptPos = pos;
 	m_fptScale = scale;
 	m_pCollider = nullptr;
+	m_bAlive = true;
 }
 
 GameObject::~GameObject()
@@ -34,6 +36,11 @@ void GameObject::setScale(fPoint scale)
 	m_fptScale = scale;
 }
 
+void GameObject::setID(UINT _ID)
+{
+	this->m_ID = _ID;
+}
+
 fPoint GameObject::getPos()
 {
 	return m_fptPos;
@@ -44,6 +51,15 @@ fPoint GameObject::getScale()
 	return m_fptScale;
 }
 
+UINT GameObject::getID()
+{
+	return m_ID;
+}
+
+void GameObject::setDead()
+{
+	m_bAlive = false;
+}
 
 // 순수 가상함수로 만들지 그냥 가상함수로 만들지 고민 해보자.
 void GameObject::update()
@@ -80,6 +96,12 @@ void GameObject::createCollider()
 {
 	m_pCollider = new Collider();
 	m_pCollider->m_pOwner = this;
+}
+
+bool GameObject::isDead()
+{
+	
+	return !m_bAlive;
 }
 
 

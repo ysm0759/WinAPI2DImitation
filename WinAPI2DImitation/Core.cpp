@@ -27,6 +27,9 @@ Core::~Core()
 
 void Core::update()
 {
+	// 이전 update에서 추가된 이벤트를 프레임 초기에 한꺼번에 처리
+	EventManager::getInst()->update();
+
 	TimeManager::getInst()->update();
 	KeyManager::getInst()->update();
 	SceneManager::getInst()->update();
@@ -61,7 +64,6 @@ void Core::init()
 	KeyManager::getInst()->init();
 	SceneManager::getInst()->init();
 	CollisionManager::getInst()->init();
-
 
 	m_hDC = GetDC(hWnd);
 

@@ -5,7 +5,7 @@ Monster::Monster()
 {
 	this->isUp = true;
 	this->velocity = 500;
-
+	this->setID((UINT)ID::MONSTER::DEFAULT);
 	createCollider();
 	getCollider()->setScale(fPoint(90.f, 90.f));
 }
@@ -14,6 +14,10 @@ Monster::~Monster()
 {
 }
 
+Monster* Monster::clone()
+{
+	return new Monster(*this);
+}
 void Monster::update()
 {
 	fPoint monsterPos = this->getPos();

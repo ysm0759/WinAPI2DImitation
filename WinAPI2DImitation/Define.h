@@ -9,14 +9,20 @@
 
 
 // Maneger 관련
-#define DT TimeManager::getInst()->getDT()
-#define FDT TimeManager::getInst()->getFDT()
+#define		   			 DT		TimeManager::getInst()->getDT()
+#define					FDT		TimeManager::getInst()->getFDT()
 
-#define KEYPRESSED(VK_KEY) KeyManager::getInst()->keyPressed(VK_KEY)
-#define KEYRELEASED(VK_KEY) KeyManager::getInst()->keyReleased(VK_KEY)
-#define KEYDOWN(VK_KEY) KeyManager::getInst()->keyDown(VK_KEY)
+#define  KEYPRESSED(VK_KEY)		KeyManager::getInst()->keyPressed(VK_KEY)
+#define KEYRELEASED(VK_KEY)		KeyManager::getInst()->keyReleased(VK_KEY)
+#define		KEYDOWN(VK_KEY)		KeyManager::getInst()->keyDown(VK_KEY)
 
-#define CURSCENE SceneManager::getInst()->getCurScene()
+#define				CURSCENE	SceneManager::getInst()->getCurScene()
+
+#define CREATEOBJ(pObj, group)	EventManager::getInst()->eventCreateObject(pObj, group)
+#define DELETEOBJ(pObj)			EventManager::getInst()->eventDeleteObject(pObj)
+#define CHANGESCN(scene)		EventManager::getInst()->eventChangeScene(scene)
+
+
 
 // Object 관련
 // 오브젝트 그리는 순서 순위가 낮을 수록 마지막에 그려져 가장 맨위에 나타난다. 
@@ -30,9 +36,43 @@ enum class GROUP_GAMEOBJ
 	DEFAULT,
 	PLAYER,
 	MONSTER,
-	MISSILE,
+	MISSILE_PLAYER,
 	SIZE,
 };
+
+class ID
+{
+	int _objID;
+public:
+
+	ID(UINT _objID)
+	{
+		_objID = (UINT)_objID;
+	}
+
+	enum class PLAYER //10000
+	{
+		DEFAULT = 10000,
+	};
+
+	enum class MONSTER // 20000
+	{
+		DEFAULT = 20000,
+	};
+
+	enum class TILE  // 30000
+	{
+
+		DEFAULT = 30000,
+	};
+
+	enum class MISSILE //40000
+	{
+		DEFAULT = 40000,
+		MISSILE_PLAYER
+	};
+};
+
 
 
 enum class GROUP_SCENE
@@ -53,6 +93,14 @@ enum class TYPE_PEN
 	RED,
 	GREEN,
 	BLUE,
+	SIZE,
+};
+
+enum class TYPE_EVENT
+{
+	CREATE_OBJECT,
+	DELETE_OBJECT,
+	CHANGE_SCENE,
 	SIZE,
 };
 

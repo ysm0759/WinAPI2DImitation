@@ -55,6 +55,27 @@
     <Filter Include="Engine\Component\Collider">
       <UniqueIdentifier>{9246e7e7-955b-4f65-b9ed-36b1b15d39bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Manager\KeyManager">
+      <UniqueIdentifier>{292d7a97-db00-4106-a9fa-fa44ddb2561a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\CollisionManager">
+      <UniqueIdentifier>{926c23b9-5536-4daa-9146-5da7a5dded0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\PathManager">
+      <UniqueIdentifier>{f4e4c210-3b65-4e39-a1b7-9cf7be1cd244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\ResourceManager">
+      <UniqueIdentifier>{07a26a26-e5ce-49a2-aabf-ebfd082a220c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\SceneManager">
+      <UniqueIdentifier>{83f16794-075a-4ef6-8ce2-e8ac46ada9ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\TimeManager">
+      <UniqueIdentifier>{0b2c5010-cb42-40b0-92cf-46d7e8363fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\EventManager">
+      <UniqueIdentifier>{61cd6737-4616-42cc-bd25-82f541c86c6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -72,23 +93,14 @@
     <ClInclude Include="Singleton.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="TimeManager.h">
-      <Filter>Engine\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Core.h">
       <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyManager.h">
-      <Filter>Engine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Object\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Object\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Engine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
@@ -105,12 +117,6 @@
     <ClInclude Include="Missile.h">
       <Filter>Object\Missile</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Engine\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="PathManager.h">
-      <Filter>Engine\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
@@ -123,34 +129,43 @@
     <ClInclude Include="Collider.h">
       <Filter>Engine\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionManager.h">
-      <Filter>Engine\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="SelectGDI.h">
       <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Engine\Manager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>Engine\Manager\KeyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="PathManager.h">
+      <Filter>Engine\Manager\PathManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Engine\Manager\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Engine\Manager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Engine\Manager\TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Engine\Manager\EventManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="TimeManager.cpp">
-      <Filter>Engine\Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>Engine\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyManager.cpp">
-      <Filter>Engine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Object\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Object\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Engine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Scene</Filter>
@@ -164,12 +179,6 @@
     <ClCompile Include="Missile.cpp">
       <Filter>Object\Missile</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Engine\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="PathManager.cpp">
-      <Filter>Engine\Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Resource\Texture</Filter>
     </ClCompile>
@@ -180,7 +189,25 @@
       <Filter>Engine\Component\Collider</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
-      <Filter>Engine\Manager</Filter>
+      <Filter>Engine\Manager\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>Engine\Manager\KeyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="PathManager.cpp">
+      <Filter>Engine\Manager\PathManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Engine\Manager\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Engine\Manager\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Engine\Manager\TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Engine\Manager\EventManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

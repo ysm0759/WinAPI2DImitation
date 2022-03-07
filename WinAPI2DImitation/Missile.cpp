@@ -3,6 +3,11 @@
 #include "Collider.h"
 
 
+Missile* Missile::clone()
+{
+	return new Missile(*this);
+}
+
 Missile::Missile()
 {
 	this->m_fVelocity = 0;
@@ -11,6 +16,7 @@ Missile::Missile()
 	this->m_fGravity = 0;
 	this->setPos(fPoint(0.f, 0.f));
 	this->setScale(fPoint(0.f, 0.f));
+	this->setID((UINT)ID::MISSILE::MISSILE_PLAYER);
 	createCollider();
 	getCollider()->setScale(fPoint(23.f, 23.f));
 }
@@ -83,4 +89,14 @@ void Missile::render(HDC _hDC)
 	
 	
 	componentRender(_hDC);
+}
+
+
+void Missile::onCollisionEnter(Collider* _pOther)
+{
+	GameObject* pOtherObj = _pOther->getObj();
+	if (pOtherObj->getID() == (UINT)ID::MONSTER::DEFAULT)
+	{
+		DELETEOBJ(this);
+	}
 }

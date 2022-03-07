@@ -40,6 +40,7 @@ using std::make_pair;
 
 #include "Core.h"
 #include "TimeManager.h"
+#include "EventManager.h"
 #include "KeyManager.h"
 #include "SceneManager.h"
 #include "PathManager.h"
