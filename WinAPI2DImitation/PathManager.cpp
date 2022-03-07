@@ -28,7 +28,7 @@ void PathManager::init()
 			break;
 		}
 	}
-		wcscat_s(m_strContentPath, 255, L"\\Release\\"); // 기존에 문자열 뒤에  \\output\\ content\\ 붙이기	}
+		wcscat_s(m_strContentPath, 255, L"\\Release\\content\\"); // 기존에 문자열 뒤에  \\output\\ content\\ 붙이기	}
 
 		// 하는 이유 release debug 모드 모두 리소스를 사용해야하는데
 		// 만약에 두 폴더 모두 리소스파일을 가지고 있으면 리소스 용량이 2배가 된다

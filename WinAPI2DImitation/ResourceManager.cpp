@@ -19,6 +19,10 @@ ResourceManager::~ResourceManager()
 	
 }
 
+void ResourceManager::init()
+{
+
+}
 
 Texture* ResourceManager::findTexture(const wstring& _strKey)
 {

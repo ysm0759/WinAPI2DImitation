@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "GameObject.h"
 #include "Collider.h"
+#include "Animator.h"
 
 GameObject::GameObject()
 {
@@ -21,9 +22,10 @@ GameObject::GameObject(fPoint pos, fPoint scale)
 GameObject::~GameObject()
 {
 	if (nullptr != m_pCollider)
-	{
 		delete m_pCollider;
-	}
+	
+	if (nullptr != m_pAnimator)
+		delete m_pAnimator;
 }
 
 void GameObject::setPos(fPoint pos)
@@ -82,9 +84,10 @@ void GameObject::render(HDC _hDC)
 void GameObject::componentRender(HDC _hDC)
 {
 	if (nullptr != m_pCollider)
-	{
 		m_pCollider->render(_hDC);
-	}
+	
+	if (nullptr != m_pAnimator)
+		m_pAnimator->render(_hDC);
 }
 
 Collider* GameObject::getCollider()
@@ -105,3 +108,13 @@ bool GameObject::isDead()
 }
 
 
+Animator* GameObject::getAnimator()
+{
+	return m_pAnimator;
+}
+
+void GameObject::createAnimator()
+{
+	m_pAnimator = new Animator;
+	m_pAnimator->m_pOwner = this;
+}

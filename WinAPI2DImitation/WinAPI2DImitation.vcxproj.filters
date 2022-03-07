@@ -28,9 +28,6 @@
     <Filter Include="Object">
       <UniqueIdentifier>{33e5a8b3-8c93-4e75-b8a1-4f2c66009b4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\GameObject">
-      <UniqueIdentifier>{99ca8b20-a94f-4ef0-a51d-f8149c5cd34b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\Player">
       <UniqueIdentifier>{eda3ea9d-4c4d-42ec-ac67-a33bb7e40224}</UniqueIdentifier>
     </Filter>
@@ -82,6 +79,9 @@
     <Filter Include="Scene\SceneStart">
       <UniqueIdentifier>{953cb6c5-0f8c-4897-bfa5-8a0dd836f0a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Component\Animator">
+      <UniqueIdentifier>{7e341d7d-2bb6-40c8-bfad-9a37f8117f7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -101,9 +101,6 @@
     </ClInclude>
     <ClInclude Include="Core.h">
       <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Object\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Object\Player</Filter>
@@ -162,6 +159,15 @@
     <ClInclude Include="SceneTool.h">
       <Filter>Scene\SceneTool</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -169,9 +175,6 @@
     </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>Engine\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Object\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Object\Player</Filter>
@@ -220,6 +223,15 @@
     </ClCompile>
     <ClCompile Include="SceneTool.cpp">
       <Filter>Scene\SceneTool</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

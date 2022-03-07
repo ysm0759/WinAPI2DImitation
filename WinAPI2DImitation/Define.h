@@ -42,14 +42,8 @@ enum class GROUP_GAMEOBJ
 
 class ID
 {
-	int _objID;
+
 public:
-
-	ID( UINT _objID)
-	{
-		_objID = (UINT)_objID;
-	}
-
 	enum class PLAYER //10000
 	{
 		DEFAULT = 10000,

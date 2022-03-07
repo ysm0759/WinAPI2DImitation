@@ -11,6 +11,7 @@ private:
 
 
 public:
+	void init();
 	Texture* findTexture(const wstring& _strKey); //저장된 Texture 탐색
 	Texture* loadTexture(const wstring& _strKey, const wstring& strRelatviePath);// Texture 불러오기 이미 있는 경우 있던 Texture 반환
 };
