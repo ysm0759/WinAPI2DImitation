@@ -86,12 +86,13 @@ void Collider::render(HDC _hDC)
 
 	SelectGDI brush(_hDC, TYPE_BRUSH::HOLLOW);
 	SelectGDI pen(_hDC, typePen);
+	fPoint fptRenderPos = CameraManager::getInst()->getRenderPos(m_fptFinalPos);
 
 	Rectangle(_hDC,
-		(int)(m_fptFinalPos.x - m_fptScale.x / 2.f),
-		(int)(m_fptFinalPos.y - m_fptScale.y / 2.f),
-		(int)(m_fptFinalPos.x + m_fptScale.x / 2.f),
-		(int)(m_fptFinalPos.y + m_fptScale.y / 2.f));
+		(int)(fptRenderPos.x - m_fptScale.x / 2.f),
+		(int)(fptRenderPos.y - m_fptScale.y / 2.f),
+		(int)(fptRenderPos.x + m_fptScale.x / 2.f),
+		(int)(fptRenderPos.y + m_fptScale.y / 2.f));
 }
 
 void Collider::onCollision(Collider* _pOther)

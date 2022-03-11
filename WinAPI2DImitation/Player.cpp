@@ -39,7 +39,6 @@ Player::~Player()
 {
 
 }
-
 void Player::update()
 {
 	fPoint playerPos = getPos();
@@ -73,16 +72,17 @@ void Player::update()
 		getAnimator()->play(L"LeftHit");
 	}
 	setPos(playerPos);
+	if (KEYDOWN(VK_RBUTTON))
+	{
 
-
+		fPoint fptLookAt = CameraManager::getInst()->getRealPos(this->getPos());
+		CameraManager::getInst()->setTargetObj(this);
+	}
 	getAnimator()->update();
 }
 
 void Player::render(HDC _hDC)
 {
-	int width = (int)(m_pTex->getBmpWidth());
-	int height = (int)(m_pTex->getBmpHeight());
-	fPoint pos = getPos();
 
 
 	//TransparentBlt(

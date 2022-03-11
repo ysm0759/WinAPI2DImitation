@@ -82,6 +82,18 @@
     <Filter Include="Engine\Component\Animator">
       <UniqueIdentifier>{7e341d7d-2bb6-40c8-bfad-9a37f8117f7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Manager\CameraManager">
+      <UniqueIdentifier>{92086bba-90fb-4d2b-bf31-4494ec939663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\FMod">
+      <UniqueIdentifier>{c8c11ce1-0772-45e7-9533-2ffed6a46fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Sound">
+      <UniqueIdentifier>{193d828a-4684-4a35-8215-5608dd970846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager\SoundManager">
+      <UniqueIdentifier>{5618bc6c-f0b0-48a9-95b7-71344f42c36f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -168,6 +180,39 @@
     <ClInclude Include="GameObject.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>Engine\Manager\CameraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod.hpp">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod_codec.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod_common.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod_dsp.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod_dsp_effects.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod_errors.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="FMod\inc\fmod_output.h">
+      <Filter>Engine\FMod</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Resource\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Engine\Manager\SoundManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI2DImitation.cpp">
@@ -232,6 +277,15 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>Engine\Manager\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Resource\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Engine\Manager\SoundManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,7 @@ Missile::~Missile()
 void Missile::update()
 {
 	fPoint missilePos = this->getPos();
+
 	if (false == m_bIsGravity)
 	{
 		// 무중력탄
@@ -64,27 +65,31 @@ void Missile::update()
 		if (m_fGravity <= 2000)
 			m_fGravity += 100 * FDT;
 	}
+	if (missilePos.x < 0 || missilePos.x > WINSIZEX
+		|| missilePos.y < 0 || missilePos.y > WINSIZEY)
+		DELETEOBJ(this);
 	setPos(missilePos);
 }
 
 void Missile::render(HDC _hDC)
 {
 
+	fPoint fptRenderPos = CameraManager::getInst()->getRenderPos(getPos());
 	if (false == m_bIsGravity) // 무중력탄은 동그라미
 	{
 		Ellipse(_hDC,
-			(int)(getPos().x - getScale().x / 2.f),
-			(int)(getPos().y - getScale().y / 2.f),
-			(int)(getPos().x + getScale().x / 2.f),
-			(int)(getPos().y + getScale().y / 2.f));
+			(int)(fptRenderPos.x - getScale().x / 2.f),
+			(int)(fptRenderPos.y - getScale().y / 2.f),
+			(int)(fptRenderPos.x + getScale().x / 2.f),
+			(int)(fptRenderPos.y + getScale().y / 2.f));
 	}
 	else //중력탄은 네모
 	{
 		Rectangle(_hDC,
-			(int)(getPos().x - getScale().x / 2.f),
-			(int)(getPos().y - getScale().y / 2.f),
-			(int)(getPos().x + getScale().x / 2.f),
-			(int)(getPos().y + getScale().y / 2.f));
+			(int)(fptRenderPos.x - getScale().x / 2.f),
+			(int)(fptRenderPos.y - getScale().y / 2.f),
+			(int)(fptRenderPos.x + getScale().x / 2.f),
+			(int)(fptRenderPos.y + getScale().y / 2.f));
 	}
 	
 	

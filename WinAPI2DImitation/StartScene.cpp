@@ -3,6 +3,9 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Monster.h"
+#include "Sound.h"
+
+
 
 StartScene::StartScene()
 {
@@ -13,6 +16,8 @@ StartScene::~StartScene()
 {
 }
 
+Sound* g_pSound;
+bool a = true;
 void  StartScene::update()
 {
 	Scene::update();
@@ -20,6 +25,21 @@ void  StartScene::update()
 	if (KEYDOWN(VK_ESCAPE))
 	{
 		CHANGESCN(GROUP_SCENE::TOOL_SCENE);
+	}
+
+	if (KEYDOWN(VK_LBUTTON))
+	{
+		fPoint fptLookAt = CameraManager::getInst()->getRealPos(MOUSEPOS());
+		CameraManager::getInst()->setLookAt(fptLookAt);
+	}
+	if (KEYDOWN('Z'))
+	{
+		SoundManager::getInst()->addSound(L"bgm", L"sound\\drumloop.wav", false);
+		SoundManager::getInst()->play(L"bgm");
+	}
+	if (KEYDOWN('X'))
+	{
+		SoundManager::getInst()->stop(L"bgm");
 	}
 }
 

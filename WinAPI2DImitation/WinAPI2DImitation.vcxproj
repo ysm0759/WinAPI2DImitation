@@ -151,11 +151,20 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FMod\inc\fmod.h" />
+    <ClInclude Include="FMod\inc\fmod.hpp" />
+    <ClInclude Include="FMod\inc\fmod_codec.h" />
+    <ClInclude Include="FMod\inc\fmod_common.h" />
+    <ClInclude Include="FMod\inc\fmod_dsp.h" />
+    <ClInclude Include="FMod\inc\fmod_dsp_effects.h" />
+    <ClInclude Include="FMod\inc\fmod_errors.h" />
+    <ClInclude Include="FMod\inc\fmod_output.h" />
     <ClInclude Include="fPoint.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
@@ -172,6 +181,8 @@
     <ClInclude Include="SceneTool.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
@@ -181,6 +192,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Core.cpp" />
@@ -196,6 +208,8 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneTool.cpp" />
+    <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />

@@ -37,12 +37,13 @@ void Monster::update()
 
 void Monster::render(HDC _hDC)
 {
-	
+
+	fPoint fptRenderPos = CameraManager::getInst()->getRenderPos(getPos());
 	Rectangle(_hDC,
-		(int)(getPos().x - getScale().x / 2),
-		(int)(getPos().y - getScale().y / 2),
-		(int)(getPos().x + getScale().x / 2),
-		(int)(getPos().y + getScale().y / 2));
+		(int)(fptRenderPos.x - getScale().x / 2),
+		(int)(fptRenderPos.y - getScale().y / 2),
+		(int)(fptRenderPos.x + getScale().x / 2),
+		(int)(fptRenderPos.y + getScale().y / 2));
 
 	componentRender(_hDC);
 }

@@ -46,6 +46,9 @@ using std::make_pair;
 #include "PathManager.h"
 #include "CollisionManager.h"
 #include "SelectGDI.h"
+#include "CameraManager.h"
+#include "ResourceManager.h"
+#include "SoundManager.h"
 
 
 //전역변수(인스턴스, 윈도우 핸들)

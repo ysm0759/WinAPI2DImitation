@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "WinAPI2DImitation.h"
+#include <locale.h>
 
 #define MAX_LOADSTRING 100
 
@@ -35,6 +36,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+    setlocale(LC_ALL, "");
 
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); //메모리 누수 확인
     //_CrtSetBreakAlloc(237);  // 메모리 누수 아이디 확인

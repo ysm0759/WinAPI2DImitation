@@ -55,7 +55,7 @@ void Animation::render(HDC hDC)
     AniFrm frm = m_vecFrm[m_iCurFrm];
 
     fptPos = fptPos + frm.fptOffset;
-
+    fptPos = CameraManager::getInst()->getRenderPos(fptPos);
     TransparentBlt(hDC,
         (int)(fptPos.x - frm.fptSlice.x / 2.f),
         (int)(fptPos.y - frm.fptSlice.y / 2.f),

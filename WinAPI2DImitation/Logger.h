@@ -20,7 +20,6 @@ public:
 
 		WCHAR str[30];
 		swprintf_s(str, L"%d/%d/%d %02d:%02d:%02d", st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
-
 		OutputDebugStringW(str);
 		OutputDebugStringW(L" ");
 		OutputDebugStringW(tag);

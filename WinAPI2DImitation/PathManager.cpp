@@ -42,3 +42,8 @@ const wchar_t* PathManager::getContentPath()
 {
 	return m_strContentPath;
 }
+
+const wchar_t* PathManager::getContentRelativePath()
+{
+	return L"..\\Release\\content\\";
+}

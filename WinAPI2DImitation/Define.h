@@ -23,6 +23,7 @@
 #define CHANGESCN(scene)		EventManager::getInst()->eventChangeScene(scene)
 
 
+#define MOUSEPOS()		KeyManager::getInst()->getMousePos()
 
 // Object 관련
 // 오브젝트 그리는 순서 순위가 낮을 수록 마지막에 그려져 가장 맨위에 나타난다. 
