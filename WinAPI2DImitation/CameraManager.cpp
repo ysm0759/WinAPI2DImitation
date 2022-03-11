@@ -92,7 +92,7 @@ void CameraManager::CalDiff()
 	}
 	else
 	{
-		m_fptCurLookAt = m_fptPrevLookAt + fvLookDir.normalize() * m_fSpeed * FDT;34
+		m_fptCurLookAt = m_fptPrevLookAt + fvLookDir.normalize() * m_fSpeed * FDT;
 
 	}
 
